@@ -1,0 +1,453 @@
+.section-hakkimizda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.section-box {
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 
+        inset 0 0 5px rgba(0, 0, 0, 0.2),
+        0 0 15px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(0, 0, 0, 0.3);
+    border-radius: 30px;
+    height: 85vh;
+    width: 85%;
+    overflow: hidden;
+    position: relative;
+}
+
+.navbar2 {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.nav-button {
+    margin-top: 15px;
+    background: transparent;
+    border: none;
+    font-family: 'Arial', sans-serif;
+    color: rgb(35, 34, 34);
+    font-size: 18px;
+    cursor: pointer;
+    transition: color 0.3s, text-shadow 0.3s; /* Işık efekti için text-shadow ekledik */
+    position: relative; /* Çizgi için konumlandırmayı ayarladık */
+}
+
+.nav-button::after { /* Çizgi için yeni pseudo-element */
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Çizginin konumu */
+    height: 2px; /* Çizgi yüksekliği */
+    width: 100%;
+    background: rgba(49, 138, 239, 0.7); /* Çizgi rengi */
+    transform: scaleX(0); /* Başlangıçta gizli */
+    transition: transform 0.3s ease; /* Geçiş efekti */
+}
+
+.nav-button:hover {
+    color: rgba(255, 255, 255, 0.7);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Üstüne gelince hafif parıltı efekti */
+}
+
+.nav-button.active::after { /* Aktif buton için çizgi görünürlüğü */
+    transform: scaleX(1); /* Çizgiyi görünür yap */
+}
+
+
+.content-grid {
+    padding: 20px;
+    height: calc(100% - 50px); /* Navbar yüksekliğini çıkar */
+    overflow: auto;
+}
+
+.content-box {
+    display: none; /* Başlangıçta tüm içerik kutuları gizli */
+}
+
+.content-box.active {
+    display: block; /* Aktif içerik kutusu görünür */
+}
+.content-box p{
+    margin-top: 30px;
+    margin-left: 20px;
+    font-size: 18px;
+    color: rgb(99, 101, 103);
+    font-family: 'Merriweather', serif;
+
+
+}
+
+.content-box h1{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    font-size: 18px;
+    margin-left: 20px;
+    color: rgb(74, 72, 72);
+}
+
+@media (max-width: 480px) {
+    .nav-button span{
+        font-size: 13px;
+    }
+    .content-grid p {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+}
+
+
+.section-hizmetler {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.section-box2 {
+    /*background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        inset 0 0 5px rgba(255, 255, 255, 0.2),
+        0 0 15px rgba(255, 255, 255, 0.5),
+        0 0 30px rgba(255, 255, 255, 0.3);*/
+    border-radius: 30px;
+    height: 85vh;
+    width: 85%;
+    overflow: hidden;
+    position: relative;
+    display: flex; /* Flexbox kullanımı */
+    justify-content: space-around; /* Kutular arasında eşit boşluk */
+    align-items: center; /* Kutuların dikeyde ortalanması */
+}
+
+.box {
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 
+        inset 0 0 5px rgba(0, 0, 0, 0.2),
+        0 0 15px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    height: 60vh;
+    width: 30%; /* Kutu genişliği */
+    overflow: hidden;
+    position: relative;
+    display: flex; /* İçeriklerin dikey ortalanması için */
+    flex-direction: column; /* Dikey düzenleme */
+    padding: 1em; /* İçerik ile kutu kenarları arasında boşluk */
+    overflow: auto; /* Taşma olduğunda kaydırma çubuğu göster */
+}
+.box:hover{
+    border: 3px solid rgba(4, 111, 252, 0.2);
+}
+
+.box h2 {
+    font-size: 22px;
+    margin-bottom: 20px; /* Başlık ile yazı arasında boşluk */
+    align-self: flex-start; /* Başlığı kutunun üst kısmına yerleştirir */
+    margin-left: 20px;
+    justify-content:center ;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.box p {
+    opacity: 0.8;
+    color: rgb(25, 25, 25);
+    font-size: 13px;
+    flex: 1; /* Yazının büyüdüğünde esnemesine izin verir */
+    display: flex;
+    /*align-items: center;  Yazıyı dikeyde ortalar */
+    justify-content: center; /* Yazıyı yatayda ortalar */
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.box img {
+    height: 170px;
+    width: 100%;
+    display: center;
+    justify-content: center;
+    min-width: 25px;
+    border-radius: 0.5em;
+    margin-top: auto; /* Resmi kutunun alt kısmına yerleştirir */
+}
+
+@media (max-width: 1024px) {
+    
+    .box {
+        overflow: auto; /* Taşma olduğunda kaydırma çubuğu göster */
+        flex-direction: column; /* Dikey düzenleme */
+        align-items: center; /* Ortalanmış hizalama */
+    }
+
+    .box h2 {
+        font-size: 15px; /* Slightly larger for mid-size screens */
+    }
+
+    .box p {
+        font-size: 10px; /* Adjust font size */
+    }
+
+    .box img {
+        height: 120px; /* Adjust image size */
+    }
+}
+
+@media (max-width: 768px) {
+ 
+    .box {
+        overflow: auto; /* Taşma olduğunda kaydırma çubuğu göster */
+        flex-direction: column; /* Dikey düzenleme */
+        align-items: center; /* Ortalanmış hizalama */
+    }
+
+    .box h2 {
+        font-size: 15px; /* Larger for better readability */
+    }
+
+    .box p {
+        font-size: 10px;
+    }
+
+    .box img {
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .box {
+        width: 100%; /* Kutunun genişliği %100 */
+        max-height: 350px; /* Kutunun maksimum yüksekliğini belirleyin */
+        padding: 10px; /* İçerik için boşluk bırakın */
+        border: 1px solid #ccc; /* İsteğe bağlı, kutunun kenarlığını ekleyin */
+        flex-direction: column; /* Alt alta sıralanması için dikey düzenleme */
+    }
+    
+    .box h2 {
+        font-size: 3.2vw; /* Küçük ekranlar için uyumlu */
+        margin-left: 10px;
+    }
+    
+    .box p {
+        font-size: 2vw; /* Küçük ekranlar için uyumlu */
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    
+    .box img {
+        height: 35vw; /* Orantılı daha küçük */
+    }
+}
+
+.section-iletisim {
+    padding: 20px;
+}
+
+.row {
+    display: flex;
+    align-items: center; /* Dikey ortalamak için */
+}
+
+.col-info {
+    flex: 1;
+    max-width: 500px; /* 1. sütunun maksimum genişliği */
+    padding: 10px;
+    margin-left: 150px; /* Sol marjı kaldır */
+    text-align: left; /* Yazıları sola hizala */
+}
+.info-text{
+    color: #454141;
+}
+
+.col-map {
+    flex: 1;
+    max-width: 500px; /* 2. sütunun maksimum genişliği */
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Sağ kenara yasla */
+    margin-left: 120px; /* Sağ marjı kaldır */
+}
+
+.map {
+    width: 100%;
+    margin-top: 50px;
+    
+}
+
+.whatsapp-contact {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    justify-content: center; /* WhatsApp metni sağa yasla */
+}
+
+.whatsapp-icon {
+    font-size: 40px;
+    color: #25D366;
+    cursor: pointer;
+    transition: color 0.3s; /* Renk değişimi için geçiş efekti */
+}
+.whatsapp-icon:hover {
+   
+    filter: brightness(1.2); /* Hover durumunda parlaklığı artır */
+}
+
+.whatsapp-text {
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+@media (max-width: 700px) {
+    .row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .col-info, .col-map {
+        max-width: 100%;
+        padding: 0 10px;
+        margin-left: 30px; /* Mobil görünümde marjinleri kaldır */
+        margin-right: 30px;
+        margin-top: 30px;
+    }
+    .col-map {
+        margin-bottom: 10px;
+    }
+    .map iframe {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .map iframe {
+        width: 100%;
+        height: 200px;
+    }
+}
+
+
+
+
+#footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-logo {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-logo img {
+    width: 100px;
+    border-radius: 50%;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.footer-logo img:hover {
+    box-shadow: 0 0 15px 5px rgba(86, 182, 255, 0.8); /* Parıltı efekti */
+    transform: scale(1.1); /* Hafif bir büyütme efekti */
+}
+
+.footer-links, .footer-social, .footer-contact {
+    flex: 1;
+}
+
+.footer-links ul, .footer-social ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-links a, .footer-social a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s, text-shadow 0.3s; /* Vurgulama geçişi için */
+    font-weight: bold; /* Vurgulamak için */
+}
+
+.footer-links a:hover, .footer-social a:hover {
+    color: #ddd;
+    text-shadow: 0 0 5px #fff, 0 0 10px #ddd; /* Vurgulama efekti */
+}
+
+.footer-social a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.footer-social i {
+    font-size: 20px; /* İkon boyutu */
+    transition: box-shadow 0.3s ease;
+}
+
+
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 14px;
+    border-top: 1px solid #444;
+    margin-top: 20px;
+}
+h4{
+    color: #121111;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-logo, .footer-links, .footer-social, .footer-contact {
+        flex: unset;
+        margin-bottom: 20px;
+    }
+    
+    .footer-logo img {
+        width: 40px;
+    }
+    
+    .footer-social i {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-logo img {
+        width: 35px;
+    }
+    
+    .footer-social i {
+        font-size: 20px;
+    }
+    
+    .footer-content {
+        gap: 10px;
+    }
+}

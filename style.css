@@ -1,0 +1,216 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "poppins";
+}
+
+:root {
+    --background:  white;
+    --second-background: white;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 80px;
+    width: 100%;
+    padding: 1.1rem 10%;
+    /*background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(50px);*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.5s ease-in-out, backdrop-filter 0.5s ease-in-out; /* Geçiş animasyonları */
+    z-index: 100;
+}
+
+.header::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0px);
+    z-index: -1;
+   
+}
+.header::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,transparent,rgba(255, 255, 255, .4),transparent);
+    transition: .5s;
+}
+.header:hover::after{
+    left: 100%;
+}
+.logo {
+    font-size: 1.5em; /* Logo yazı boyutu */
+    color: white; /* Yazı rengi */
+    text-decoration: none; /* Alt çizgiyi kaldır */
+    font-weight: 600; /* Kalın yazı */
+    opacity: 0.8; /* Saydamlık */
+    transition: 0.2s ease-in-out; /* Geçiş efekti */
+    display: flex; /* Flexbox ile hizalama */
+    align-items: center; /* Dikey hizalama */
+}
+
+.logo img {
+    width: 100px; /* Resmin genişliği */
+    height: 100px; /* Resmin yüksekliği */
+    border-radius: 50%; /* Resmi yuvarlak yapar */
+    margin-right: 10px; /* Resim ile yazı arasındaki boşluk */
+    transition: filter 0.3s, box-shadow 0.3s; /* Parlaklık ve gölge geçişi */
+    margin-top: -10px; /* Resmi yukarı almak için negatif değer */
+}
+
+/* Hover efekti ile parlaklık ve gölge ekleme */
+.logo:hover img {
+    filter: brightness(1.1); /* Hafif parlaklık */
+}
+
+
+
+.logo:hover {
+    opacity: 1; /* Hover durumunda opaklık */
+}
+
+.navbar a {
+    font-size: 0.75rem; /* Navigasyon yazı boyutu */
+    color: rgb(255, 255, 255); /* Yazı rengi */
+    text-decoration: none; /* Alt çizgiyi kaldır */
+    font-weight: 300; /* Daha hafif yazı */
+    margin-left: 2.5rem; /* Sol boşluk */
+    opacity: 0.8; /* Saydamlık */
+    transition: 0.2s ease-in-out; /* Geçiş efekti */
+}
+
+.navbar a:hover {
+    opacity: 1; /* Fareyle üzerine gelince opaklık */
+}
+
+span {
+    background: linear-gradient(to right, #048ad7, #2e2675, #867da5); /* Gradyan arka plan */
+    background-clip: text; /* Arka planın metne uygulanması */
+    color: transparent; /* Metin rengini şeffaf yap */
+}
+
+
+#check {
+    display: none;
+}
+.icons {
+    position: absolute;
+    right: 5%;
+    font-size: 2.8rem;
+    color: white;
+    cursor: pointer;
+    display: none;
+}
+
+section{
+    height: 100vh;
+    background-color: white;
+}
+#hizmetler{background-color: rgba(231, 228, 228, 0.4);}
+
+@media (max-width: 992px){
+    .header{
+        padding: 1.3rem 5%;
+    }
+}
+
+@media (max-width: 768px){
+    .icons {
+        display: inline-flex;
+    }
+
+    #check:checked~.icons #menu-icon{
+        display: none;
+    }
+
+    .icons #close-icon{
+        display: none;
+    }
+
+    #check:checked~.icons #close-icon{
+        display: block;
+    }
+
+    .navbar{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background: rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(50px);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.529);
+        overflow: hidden;
+        transition: 0.3s ease;
+    }
+    #check:checked~.navbar{
+        height: 15rem;
+    }
+
+    .navbar a{
+        display: block;
+        font-size:1.1rem ;
+        margin: 1.5rem 0;
+        text-align: center;
+        transform: translateY(-50px);
+        opacity: 0;
+        background-color: rgba(0, 0, 0, 0.489);;
+        transition: 0.3s ease;
+    }
+
+    #check:checked~.navbar a{
+        transform: translateY(0px);
+        opacity: 1;
+        transition-delay: calc(.15s * var(--i));
+    }
+    .logo span { 
+        display: none; /* ÖzGökdenizTurizm yazısını gizle */
+    }
+    .logo { 
+        font-size: 0; /* Logo alanını küçült */
+    }
+
+}
+
+/* Kaydırma çubuğu genişliğini ince ayarla */
+::-webkit-scrollbar {
+    width: 8px; /* Daha ince genişlik */
+    background-color: var(--background); /* Arkaplan rengi */
+}
+
+/* Kaydırma çubuğu başparmak kısmını zarif bir gradyanla ayarla */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #4e4e4e, #8a8a8a); /* Yumuşak bir geçiş */
+    border-radius: 4px; /* Kenarları yuvarla */
+    border: 2px solid var(--background); /* Çevresinde arkaplanla uyumlu boşluk bırak */
+}
+@media (max-width: 480px) {
+    .header {
+        padding: 1rem 5%; /* Başlık için daha az iç boşluk */
+        height: 60px; /* Başlık yüksekliğini azalt */
+    }
+    
+    .icons {
+        font-size: 2rem; /* İkon boyutunu küçült */
+    }
+
+    .logo img {
+        width: 80px; /* Resmin genişliğini küçült */
+        height: 80px; /* Resmin yüksekliğini küçült */
+    }
+}
